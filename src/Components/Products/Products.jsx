@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
 
-const Products = () => {
+const Products = ({prod}) => {
   
 
     const {cart, setCart} = useContext(Context)
@@ -115,14 +115,12 @@ const Products = () => {
                         <div className="card-body">
                             <h5 className="card-title">{prod.title}</h5>
                             <h5 className="price">💰 ${prod.price}</h5>
-                            <span>
-                            {/* <p className="card-text">{prod.description} </p> */}
-                            </span>
-                            <button className="btn btn-primary" onClick={() => buyProducts(prod)}>SUMAR AL CARRITO</button>
-                        </div>
-                    <button className="btn btn-primary" onClick={handleShowDetails}>Consultar disponibilidad ❓</button>
+                            </div>
+                            <button className="btn btn-primary" onClick={() => buyProducts(prod)}>🔸SUMAR AL CARRITO 🛒</button>
+                        
+                    <button className="btn btn-light" onClick={handleShowDetails}>🔸Consultar disponibilidad 📖 </button>
                     
-                    <Link to={`/products/${prod.id}`}>Más detalles</Link>
+                    <button className="btn btn-dark"> <Link to={`/products/${prod.id}`}>Más detalles</Link> </button>
 
                     
                  
