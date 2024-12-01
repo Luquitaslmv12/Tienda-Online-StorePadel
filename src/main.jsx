@@ -50,8 +50,8 @@ import Banner from './Components/Banner/Banner.jsx'
        
     <App/>
        
-       </StrictMode>,
-     )
+       </StrictMode>
+     );
 
 
 

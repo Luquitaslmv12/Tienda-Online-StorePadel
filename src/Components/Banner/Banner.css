@@ -1,7 +1,7 @@
 .banner {
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 50vh;
 
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/photo-1705637841133-2fd5b3c4512b.avif") ;
 }
@@ -24,5 +24,11 @@
     color: white;
     opacity: 0.7;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.buscador-container{
+    font-size: 30px;
+    color: white;
+    opacity: 0.8;
 }
 

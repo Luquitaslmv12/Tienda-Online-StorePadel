@@ -1,3 +1,12 @@
+.CartContent{
+   
+        background-image: linear-gradient(rgba(139, 124, 124, 0.4), rgba(168, 153, 153, 0.4)), url("/public/photo-1705637841133-2fd5b3c4512b.avif") ;
+        height: auto;
+        max-height: max-content;
+        display: flex;
+         flex-direction: column;
+}
+
 .product-card-container {
     display: flex;
     justify-content: space-around;

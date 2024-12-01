@@ -1,24 +1,5 @@
 import React, { useState } from 'react'
 import "./Banner.css" 
-import { Link, NavLink } from 'react-router-dom'
-import Products from '../Products/Products'
-
-
-// const Productss = ({prod}) => {
-//  return(
-//   <div>
-//   <li><Link to={`products/category/${prod.category}`}>asd</Link></li>
-//   <Link to="products/category/jewelery">aaaaaaaaaaaaaaaaaaaaaaa</Link>
-//   </div>
-//  )
-
-// }
-
-
-
-
-
-
 
 
 
@@ -32,7 +13,7 @@ const [inputValue, setInputValue]= useState ("")
 
 
   return(
-    <div className="buscador_container">
+    <div className="buscador-container">
       <h2>🔍 Buscar producto
       <input type="search" onChange={(e)=>filterUser(e.target.value)}/>
       </h2>

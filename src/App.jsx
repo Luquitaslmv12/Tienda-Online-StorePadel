@@ -6,31 +6,28 @@ import Navbar from './Components/Navbar/Navbar'
 import Banner from './Components/Banner/Banner'
 import Products from './Components/Products/Products'
 import CartContent from './Components/CartContent/CartContent'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, RouterProvider, Link } from 'react-router-dom';
+import ContextProvider from './Context/Context'
+import ProductDetail from './Components/Products/ProductDetail'
 
 
 
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
-           <BrowserRouter>
-     
-     <Home/>
-       <Navbar/>
-    <Banner/> 
-    
-
+    <BrowserRouter>
+    <ContextProvider>      
        <Routes>
              <Route exact path='/' element={<Home/>}/>
-             <Route exact path='/category/:categoryId' element={<Products/>}/>
-           <Route exact path='/cart' element={<CartContent/>}/>
-             <Route exact path='*' element={<Home/>}/>
+             <Route exact path='products/category/:categoryId' element={<Products/>}/>
+             <Route exact path='/cart' element={<CartContent/>}/>
+             <Route exact path='/products/:id' element={<ProductDetail/>}/>
+             <Route path="*" element={<h2>404 Not Found</h2>} />
 
         </Routes>
-
+     </ContextProvider>
      </BrowserRouter>
     </>
   )

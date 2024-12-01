@@ -7,7 +7,7 @@ import CartTotal from './CartTotal'
 
 const CartContent = () => {
   return (
-    <div>
+    <div className='CartContent'>
       <Navbar/>
       <CartElements/>
       <CartTotal/>

@@ -4,22 +4,35 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { Context } from '../../Context/Context';
 import { Link, useParams } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
+import Banner from '../Banner/Banner';
 
-
-const Products = ({prod}) => {
+const Products = () => {
+  
 
     const {cart, setCart} = useContext(Context)
-
+   
     const [products, setProducts] = useState([])
-    // const [categoria, setCategoria] = useState("");
-    const [cargando, setCargando] = useState(false);
+     const [categoria, setCategoria] = useState("");
+    const [loading, setLoading] = useState(true);
+
+    const { categoryId } = useParams();
+    const { id } = useParams();
+    
 
 
-    const categoria = useParams().categoria;
-    console.log(categoria);
+   
+    
 
 
   const buyProducts = (prod) => {
+
+    toast.success("PRODUCTO SUMADO AL CARRO!!!", {
+      autoClose: 5000,
+      position: 'top-left',
+       className: 'foo-bar',
+      theme: 'dark'
+   });
 
     setCart([...cart, prod])
 
@@ -27,67 +40,60 @@ const Products = ({prod}) => {
     
    
 
-    useEffect(() => {
-        
-        setCargando(true)
-    if(categoria) {
-      fetch(`https://fakestoreapi.com/products/category/${categoria}`)
-      .then(res=>res.json())
-      .then(json=>setProducts(json))
-      .finally(setCargando(false))
-    }else{
-      fetch("https://fakestoreapi.com/products")
-      .then(res=>res.json())
-      .then(res=>setProducts(res))
-      .finally(setCargando(false))
-    }
-  }, [categoria])
 
 
-  const changeCat = (categoria) => {
-    setCategoria(categoria)
-
-    
-  }
-
-    console.log("por fuera del useEffect", products)
-
-
-    const handleShowDetails =() =>{
+     const handleShowDetails =() =>{
         console.log('click')
         
-        toast.success("PRODUCTO DISPONIBLE!!!", {
+         toast.success("PRODUCTO DISPONIBLE!!!", {
             autoClose: 5000,
-            className: 'foo-bar',
+            position: 'top-left',
+             className: 'foo-bar',
             theme: 'dark'
-        });
-    }
+         });
+     }
 
+
+
+
+     useEffect(() => {
+      const fetchProducts = async () => {
+          setLoading(true); // Iniciar el loading
+          const response = await fetch('https://fakestoreapi.com/products');
+          const data = await response.json();
+
+          // Filtrar productos por categoría si categoryId está presente
+          const filteredProducts = categoryId ? data.filter(product => product.category === categoryId) : data;
+          setProducts(filteredProducts);
+          setLoading(false); // Finalizar el loading
+      };
+
+      fetchProducts();
+  }, [categoryId]); // Dependencia de categoryId para detectar cambios en la URL
+
+  if (loading) {
+      return <div>Cargando productos...</div>;
+  }
 
 
     
 
   return (
+   
+    <div>
 
-    // <div className='category'>
-    //        <button className="btn btn-primary" onClick={ categoria.categoria == "/")} text="todo" />
-    //         <button className="btn btn-primary" onClick={() => changeCat("electronics")} text="malbec" />
-    //          <button className="btn btn-primary" onClick={() => changeCat("men's clothing")} text="ropa de hombre" />
-    //         <button className="btn btn-primary" onClick={() => changeCat("jewelery")} text="jewelery" />
-    //          <button className="btn btn-primary" onClick={() => setCargando(true)} text="cargar" />
+<Navbar/>
+<Banner/>
+    
+
             
-             
+            
         
     
-    <div className='card-container'>
+    <div className='card-container' key={products.id}>
 
 
-<ul>
-<li><Link to="products/category/jewelery">jewelery</Link></li>
-<Link to="products/category/men's clothing">Men's Clothing</Link>
-</ul>
 
-         
 
            
         {
@@ -100,10 +106,6 @@ const Products = ({prod}) => {
                return(
                 
                    
-                // categoria == prod.category
-                
-
-                // ?
 
                 
                 
@@ -119,9 +121,13 @@ const Products = ({prod}) => {
                             <button className="btn btn-primary" onClick={() => buyProducts(prod)}>SUMAR AL CARRITO</button>
                         </div>
                     <button className="btn btn-primary" onClick={handleShowDetails}>Consultar disponibilidad ❓</button>
-                    <li><Link to={`products/category/${prod.category}`}>asd</Link></li>
                     
-                    {/* <ToastContainer/> */}
+                    <Link to={`/products/${prod.id}`}>Más detalles</Link>
+
+                    
+                 
+                    
+                    <ToastContainer/>
                     </div>
                 
                 
@@ -129,26 +135,6 @@ const Products = ({prod}) => {
                     
                 </div>
 
-                // :
-
-
-                
-                // <div>
-                //     <div className="card" style={{width: '18rem'}} key={prod.id}>
-                //     <img src={prod.image} className="card-img-top"/>
-                //         <div className="card-body">
-                //             <h5 className="card-title">{prod.title}</h5>
-                //             <h5 className="price">💰 ${prod.price}</h5>
-                //             <span>
-                //             <p className="card-text">{prod.description} </p>
-                //             </span>
-                //             <button className="btn btn-primary" onClick={() => buyProducts(prod)}>SUMAR AL CARRITO</button>
-                //         </div>
-                //     <button className="btn btn-primary" onClick={handleShowDetails}>Consultar disponibilidad ❓</button>
-                //     </div>
-                //     <li><Link to={`products/category/${prod.category}`}>asd</Link></li>
-                //     <ToastContainer/>
-                // </div>
                 
                
                ) 
@@ -156,14 +142,19 @@ const Products = ({prod}) => {
             })
         }   
        
-      <ToastContainer/> 
+    
       
     </div>
-    /* </div> */
+    </div>
+  
   )
 
 
 }
+
+
+
+
 
 export default Products
 

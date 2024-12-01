@@ -1,18 +1,20 @@
 import React from 'react'
 import './Navbar.css'
 import { Link, NavLink } from 'react-router-dom'
+import CategoryMenu from '../CategoryMenu'
 
 const Navbar = () => {
   return (
+    
     <div className='nav-container'>
         <nav className='navbar'>
-          <NavLink to="/">
+          <Link to="/">
           <h1 className='navbar-logo'>SHOP</h1>
-          </NavLink>
+          </Link>
 
-          
+          <CategoryMenu/>
             
-            <NavLink className='navbar-cart' to="/cart">🛒</NavLink>
+            <Link className='navbar-cart' to="/cart">🛒</Link>
         </nav>
       
     </div>
