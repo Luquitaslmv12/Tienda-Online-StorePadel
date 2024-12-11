@@ -1,8 +1,25 @@
-# React + Vite
+# Proyecto final REACT - E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tienda de productos de deporte
 
-Currently, two official plugins are available:
+Este proyecto blablabla 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dependencias / Librerias utilizadas:
+
+* react router dom ver: 121324
+* Firebase - Firestore ver:blabla
+* toastify
+
+
+
+1. primer el
+2. segundo el
+
+[visita el proyecto en prod] (LINK)
+
+![imagen del home](link a imagen)
+
+
+** texto en NEGRITA
+
+

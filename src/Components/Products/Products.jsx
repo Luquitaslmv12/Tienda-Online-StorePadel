@@ -7,7 +7,44 @@ import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
 
-const Products = ({prod}) => {
+ import ProductCard from './ProductCard';
+ import { getProducts } from '../../firebase/firebase';
+
+
+ const Products = ({prod}) => {
+
+
+
+   const [singleProd, setSingleProd] = useState(null);
+   const [myProds, setMyProds] = useState([]);
+
+
+   useEffect(() => {
+     /* getSingleProduct('ZjkF4RdijYUaR3gseS30').then((product) =>
+      setSingleProd(product)
+    ); */
+     getProducts().then((products) => setMyProds(products)); 
+    // filterProductsByPrice(10000).then((products) => setMyProds(products));
+   }, []);
+
+   return (
+     <section style={{ display: 'flex' }}>
+      {singleProd && (
+         <p>
+          Producto: {singleProd.title} - Precio $ {singleProd.price}
+        </p>
+       )}
+       {myProds &&
+         myProds.map((prod) => <ProductCard key={prod.id} prod={prod} />)}
+     </section>
+   );
+
+
+
+
+
+
+
   
 
     const {cart, setCart} = useContext(Context)
@@ -110,7 +147,7 @@ const Products = ({prod}) => {
                 
                 
                 <div>
-                    <div className="card" style={{width: '18rem'}} key={prod.id}>
+                    <div className="card" style={{width: '16rem'}} key={prod.id}>
                     <img src={prod.image} className="card-img-top"/>
                         <div className="card-body">
                             <h5 className="card-title">{prod.title}</h5>
@@ -120,7 +157,7 @@ const Products = ({prod}) => {
                         
                     <button className="btn btn-light" onClick={handleShowDetails}>🔸Consultar disponibilidad 📖 </button>
                     
-                    <button className="btn btn-dark"> <Link to={`/products/${prod.id}`}>Más detalles</Link> </button>
+                    <button className="btn btn-outline-info"> <Link to={`/products/${prod.id}`}>Más detalles</Link> </button>
 
                     
                  

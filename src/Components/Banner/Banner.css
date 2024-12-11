@@ -2,7 +2,8 @@
     background-size: cover;
     background-position: center;
     height: 50vh;
-
+    margin: 3px;
+    border: 10px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/photo-1705637841133-2fd5b3c4512b.avif") ;
 }
 

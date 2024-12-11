@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const categories = [
-    { id: 'electronics', name: 'Electrónica' },
-    { id: 'jewelery', name: 'Joyería' },
-    { id: "men's clothing", name: 'Ropa de Hombre' },
-    { id: "women's clothing", name: 'Ropa de Mujer' }
+    { id: 'electronics', name: 'Electrónica📱' },
+    { id: 'jewelery', name: 'Joyería💎' },
+    { id: "men's clothing", name: 'Ropa de Hombre🤵' },
+    { id: "women's clothing", name: 'Ropa de Mujer💃' }
 ];
 
 const CategoryMenu = () => {
@@ -13,11 +13,11 @@ const CategoryMenu = () => {
         <nav>
             <h3 className='navbar-category'>*Categorías*</h3>
             <ul>
-                <button className="btn btn-secundary"><Link to="/">Todos los Productos</Link></button>
+                <Link type='button' className="btn btn-success" to="/">Todos los Productos</Link>
                 {categories.map(category => (
-                    <button key={category.id} className='btn btn-secundary'>
-                        <Link to={`/products/category/${category.id}`}>{category.name}</Link>
-                    </button>
+                    <>
+                        <Link  type='button' className='btn btn-outline-info' to={`/products/category/${category.id}`}>{category.name}</Link>
+                    </>
                 ))}
             </ul>
         </nav>
