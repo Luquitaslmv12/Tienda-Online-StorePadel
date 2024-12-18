@@ -9,6 +9,7 @@ import CartContent from './Components/CartContent/CartContent'
 import { BrowserRouter, Routes, Route, RouterProvider, Link } from 'react-router-dom';
 import ContextProvider from './Context/Context'
 import ProductDetail from './Components/Products/ProductDetail'
+import ProductCard from './Components/Products/ProductCard'
 
 
 
@@ -21,9 +22,9 @@ function App() {
     <ContextProvider>      
        <Routes>
              <Route exact path='/' element={<Home/>}/>
-             <Route exact path='products/category/:categoryId' element={<Products/>}/>
+             <Route exact path='productos/category/:categoryId' element={<Products/>}/>
              <Route exact path='/cart' element={<CartContent/>}/>
-             <Route exact path='/products/:id' element={<ProductDetail/>}/>
+             <Route exact path='/productos/id/:Id' element={<ProductDetail/>}/>
              <Route path="*" element={<h2>404 Not Found</h2>} />
 
         </Routes>

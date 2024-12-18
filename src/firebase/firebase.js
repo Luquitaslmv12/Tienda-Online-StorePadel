@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -21,14 +22,15 @@ const firebaseConfig = {
   appId: "1:243354325139:web:42d030ceefc8a10853bd66"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
 //obtener un producto
-export async function getSingleProduct(id) {
-  const documentRef = doc(db, 'productos', id);
+export async function getSingleProduct(Id) {
+  const documentRef = doc(db, 'productos', Id);
 
   try {
     const snapshot = await getDoc(documentRef);
@@ -68,6 +70,29 @@ export async function filterProductsByPrice(price) {
     const filteredQuery = query(
       collection(db, 'productos'),
       where('price', '<', price)
+    );
+    const querySnapshot = await getDocs(filteredQuery);
+    if (querySnapshot.size !== 0) {
+      const productsList = querySnapshot.docs.map((docu) => {
+        return {
+          id: docu.id,
+          ...docu.data(),
+        };
+      });
+      return productsList;
+    } else {
+      console.log('Coleccion vacía !');
+    }
+  } catch (error) {
+    console.error('Error al obtener el documento: ', error);
+  }
+}
+
+export async function filterProductsByCategory(category) {
+  try {
+    const filteredQuery = query(
+      collection(db, 'productos'),
+      where('category', '==', category)
     );
     const querySnapshot = await getDocs(filteredQuery);
     if (querySnapshot.size !== 0) {

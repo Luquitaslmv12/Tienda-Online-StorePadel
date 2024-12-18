@@ -6,37 +6,92 @@ import { Context } from '../../Context/Context';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
+import ProductDetail from './ProductDetail';
+
 
  import ProductCard from './ProductCard';
- import { getProducts } from '../../firebase/firebase';
+ import { filterProductsByCategory, getProducts, getSingleProduct } from '../../firebase/firebase';
+
+ 
 
 
- const Products = ({prod}) => {
+
+ const Products = () => {
 
 
-
-   const [singleProd, setSingleProd] = useState(null);
+  const {cart, setCart} = useContext(Context)
+   const [singleProd, setSingleProd] = useState([]);
    const [myProds, setMyProds] = useState([]);
+   const { Id } = useParams();
+   const [loading, setLoading] = useState(true);
+   const { categoryId } = useParams();
+
 
 
    useEffect(() => {
-     /* getSingleProduct('ZjkF4RdijYUaR3gseS30').then((product) =>
-      setSingleProd(product)
-    ); */
-     getProducts().then((products) => setMyProds(products)); 
-    // filterProductsByPrice(10000).then((products) => setMyProds(products));
-   }, []);
+    const fetchProducts = async () => {
+        try {
+
+          if (Id) { // Verifica si hay un productId
+            const singleProd = await getSingleProduct(Id); // Obtén el producto específico
+            setSingleProd(singleProd);
+            setMyProds([]);
+            console.log('dentro del detail')
+
+          } else if (categoryId) {
+          const products = await filterProductsByCategory(categoryId); // Usa categoryId aquí
+          setMyProds(products);
+          setSingleProd([])
+      } else {
+        const allProducts = await getProducts(); // Obtén todos los productos si no hay categoryId
+        setMyProds(allProducts);
+      }
+    } catch (error) {
+      console.error('Error al obtener productos:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+    fetchProducts();
+  }, [categoryId]); // Asegúrate de que el efecto se ejecute cuando categoryId cambie
+
+  console.log(singleProd)
+  console.log(Id)
+  console.log(categoryId)
+
+  if (loading) {
+    return <p>Cargando productos...</p>; // Mensaje de carga
+  }
 
    return (
-     <section style={{ display: 'flex' }}>
-      {singleProd && (
-         <p>
-          Producto: {singleProd.title} - Precio $ {singleProd.price}
+    <>
+    <Navbar/>
+    <Banner/>
+
+    <div className='card-container'>   
+
+     {/* {singleProd && (
+      <p>
+    <ProductDetail key={singleProd.id} prod={singleProd}/>
         </p>
-       )}
-       {myProds &&
-         myProds.map((prod) => <ProductCard key={prod.id} prod={prod} />)}
-     </section>
+          )}  */}
+      {myProds &&  (
+
+
+
+        
+         myProds.map((prod) => <ProductCard key={prod.id} prod={prod} />))}
+
+{myProds !=  (
+
+
+
+        
+<h1>No hay prods</h1>)}
+         
+    </div>
+     </>
    );
 
 
@@ -47,14 +102,14 @@ import Banner from '../Banner/Banner';
 
   
 
-    const {cart, setCart} = useContext(Context)
+    // const {cart, setCart} = useContext(Context)
    
     const [products, setProducts] = useState([])
      const [categoria, setCategoria] = useState("");
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
-    const { categoryId } = useParams();
-    const { id } = useParams();
+    // const { categoryId } = useParams();
+    // const { id } = useParams();
     
 
 
