@@ -2,7 +2,7 @@
 
 ## Tienda de productos de deporte
 
-Este proyecto blablabla 
+Este proyecto se trata de un store donde podemos ver diferentes Card de diversos productos, en el cual podemos filtrar por categoria y ver el detalle de cada producto 
 
 ### Dependencias / Librerias utilizadas:
 
@@ -20,6 +20,11 @@ Este proyecto blablabla
 ![imagen del home](link a imagen)
 
 
-** texto en NEGRITA
+**texto en NEGRITA**
+_texto en cursiva_
+
+💎
+
+> alerta de algo 
 
 

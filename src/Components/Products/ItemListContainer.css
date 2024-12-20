@@ -4,17 +4,12 @@
     justify-content: space-around;
     border: 1px;
     margin: 3px;
-    
+     
     
    
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/banner-padel-byn.webp") ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/DALL·E\ 2024-12-20\ 19.55.09\ -\ A\ web\ wallpaper\ design\ with\ a\ pastel\ color\ palette\ leaning\ towards\ white\,\ featuring\ a\ padel\ theme.\ Include\ subtle\ illustrations\ of\ padel\ rackets\,\ ball.webp") ;
 }
 
-.category{
-  
-
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/banner-padel-byn.webp") ;
-}
 
 .card {
     background-color: rgba(83, 83, 83, 0.7);
@@ -50,11 +45,10 @@ button{
     max-height: 25vh;
     max-height: 25vh;
 
-    /* resize:initial */
+   
 }
 
  .card:hover {
-    /* transform: translateY(-5px); 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  */
+
     transform: scale(1.02);
   } 

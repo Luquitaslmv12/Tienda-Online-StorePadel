@@ -4,21 +4,25 @@ import CartElements from './CartElements'
 import CartTotal from './CartTotal'
 import { Link } from 'react-router-dom';
 import './CartContent.css'
-import './CartWidget'
+
+
 
 
 
 const CartContent = () => {
+
   return (
     <>
     <Navbar/>
     <div className='CartContent'>
-    <h1><Link type='button' className='back' to="/">←VOLVER</Link></h1>
+    <h1 className="text-start">
+    <Link to='/' className="btn btn-primary me-2"  style={{ textDecoration: 'none', fontSize: '1.0rem' }} >
+      ← VOLVER
+    </Link>
+    </h1>
       <h1>🔶¡¡¡Tu carrito de compras!!!🔶</h1>
-      
-      <CartElements/>
-      <CartTotal/>
-      
+    <CartElements/>
+    <CartTotal/>   
     </div>
     </>   
   )

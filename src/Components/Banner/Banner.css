@@ -3,7 +3,7 @@
     background-position: center;
     height: 40vh;
     margin: 3px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/banner-padel-color.webp") ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/public/Banner-padel-color.webp") ;
 }
 
 .banner-container {

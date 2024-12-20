@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -10,7 +9,6 @@ import {
   where,
   addDoc,
   updateDoc,
-  writeBatch,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -23,12 +21,12 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-//obtener un producto
+
 export async function getSingleProduct(Id) {
   const documentRef = doc(db, 'productos', Id);
 
@@ -44,7 +42,7 @@ export async function getSingleProduct(Id) {
   }
 }
 
-//obtener toda una coleccion
+
 export async function getProducts() {
   try {
     const querySnapshot = await getDocs(collection(db, 'productos'));
@@ -64,7 +62,7 @@ export async function getProducts() {
   }
 }
 
-//filtros de precio
+
 export async function filterProductsByPrice(price) {
   try {
     const filteredQuery = query(
@@ -111,7 +109,7 @@ export async function filterProductsByCategory(category) {
   }
 }
 
-//agregar una nueva orden de pedido
+
 export async function sendOrder(order) {
   const ordersCollection = collection(db, 'orders');
   try {
@@ -122,7 +120,7 @@ export async function sendOrder(order) {
   }
 }
 
-//actualizar un producto
+
 export async function updateProduct(id, toUpdate) {
   const itemDocRef = doc(db, 'productos', id);
   try {
@@ -133,22 +131,8 @@ export async function updateProduct(id, toUpdate) {
   }
 }
 
-//actualizar multiples productos
-export async function updateMultiple() {
-  const batch = writeBatch(db); //creando el batch
 
-  const docRef1 = doc(db, 'productos', 'ZjkF4RdijYUaR3gseS30');
-  const docRef2 = doc(db, 'orders', '0Nu9HbjYKc7hmS67nNzd');
 
-  batch.update(docRef1, { description: 'usb Logitech' });
-  batch.update(docRef2, { total: 1212 });
-
-  try {
-    await batch.commit(); //ejecuta todas las actualizaciones juntas
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 
 

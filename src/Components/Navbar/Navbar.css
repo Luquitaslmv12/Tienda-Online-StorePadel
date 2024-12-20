@@ -41,3 +41,27 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+.cart-count {
+    font-weight: bold;
+  }
+  
+  .cart-count.small {
+    color: green;
+  }
+  
+  .cart-count.medium {
+    color: orange;
+  }
+  
+  .cart-count.large {
+    color: red;
+  }
+
+  /* .totalunits {
+    font-size: 25px;
+    
+    margin-top: 4vh;
+    cursor: pointer;
+    text-decoration: none;
+}  */

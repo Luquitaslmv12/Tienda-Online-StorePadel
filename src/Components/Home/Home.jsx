@@ -1,13 +1,10 @@
 import React from 'react'
-import Products from '../Products/Products'
+import Products from '../Products/ItemListContainer'
 
 const Home = () => {
   return (
     <>
-    
       <Products/>
-        
-      
     </>
   )
 }
