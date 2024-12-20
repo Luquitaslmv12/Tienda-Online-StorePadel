@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import { Context } from '../../Context/Context';
 import { ToastContainer, toast } from 'react-toastify';
-import './itemDetailContainer.css';
+import './ProductDetail.css';
 import ItemCount from './ItemCount';
 import { getSingleProduct } from '../../firebase/firebase';
 import Banner from '../Banner/Banner';
@@ -12,7 +12,7 @@ import Banner from '../Banner/Banner';
 
 
 
-const ProductDetail = (prod) => {
+const  ProductDetail = (prod) => {
 
   const {cart, setCart} = useContext(Context)
   const [singleProd, setSingleProd] = useState([]);

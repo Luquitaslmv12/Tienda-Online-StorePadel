@@ -3,9 +3,10 @@ import { filterProductsByCategory, getProducts, getSingleProduct } from '../../f
 import {useParams } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
-import ProductCard from './ItemList';
+import ProductCard from './ProductCard';
 import 'react-toastify/dist/ReactToastify.css';
-import './ItemDetailContainer.css'
+import './Products.css'
+
 
  const Products = () => {
    const [singleProd, setSingleProd] = useState([]);

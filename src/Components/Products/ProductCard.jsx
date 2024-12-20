@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import './ItemListContainer.css'
+import './ProductDetail.css'
 
 export default function ProductCard({ prod, onClick}) {
   const { Id } = useParams();
