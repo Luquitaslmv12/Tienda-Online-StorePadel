@@ -17,10 +17,6 @@ Dentro del carro de compras tenemos un listado de articulos agregados, el cual n
     "react-toastify": "^10.0.6"
 
 
-
-1. primer el
-2. segundo el
-
 [visita el proyecto en produccion] ([LINK](https://e-commerceacepadel.netlify.app/))
 
 
