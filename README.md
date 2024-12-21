@@ -15,18 +15,26 @@ Dentro del carro de compras tenemos un listado de articulos agregados, el cual n
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
     "react-toastify": "^10.0.6"
+<<<<<<< HEAD
+=======
+
+
+[visita el proyecto en produccion] ([LINK](https://e-commerceacepadel.netlify.app/))
+>>>>>>> af13e73b2cad8d08325e4253a660675f0bc1afdb
 
 
 
-1. primer el
-2. segundo el
+**INICIALIZA CON 'NPM RUN DEV'**
 
+<<<<<<< HEAD
 [visita el proyecto en produccion] ([LINK](https://e-commerceacepadel.netlify.app/))
 
 
 
 **INICIALIZA CON 'NPM RUN DEV'**
 
+=======
+>>>>>>> af13e73b2cad8d08325e4253a660675f0bc1afdb
 
 💎
 
