@@ -1,0 +1,39 @@
+.checkout-form {
+  background-color: #527597; /* Color de fondo claro */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: auto; /* Centrar el formulario */
+}
+
+.checkout-form h2 {
+  color: #343a40; /* Color del título */
+}
+
+.checkout-form .form-group label {
+  font-weight: bold; /* Negrita para las etiquetas */
+}
+
+.checkout-form .form-control {
+  border-radius: 4px; /* Bordes redondeados para los campos de entrada */
+}
+
+.checkout-form .btn {
+  margin-top: 10px; /* Espaciado superior para el botón */
+}
+
+.checkout-form input {
+  border-radius: 0.5rem;
+  border: 1px solid #5f4646;
+}
+
+.checkout-form label {
+  font-weight: 500;
+}
+
+.checkout-form button {
+  font-size: 1.1rem;
+  padding: 0.6rem 1rem;
+  transition: all 0.2s ease-in-out;
+}

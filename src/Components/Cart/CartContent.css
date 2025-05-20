@@ -1,0 +1,56 @@
+.CartContent{
+   
+        background-image: linear-gradient(rgba(139, 124, 124, 0.4), rgba(168, 153, 153, 0.4)), url("/public/design-space-paper-textured-background.jpg") ;
+       
+        max-height: max-content;
+        min-height: 1000px;
+         display: flex; 
+         flex-direction: column; 
+        
+
+        
+
+        
+}
+
+.product-card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 30px;
+    text-align: center;
+
+}
+
+.product-card-container > img {
+    height: 120px;
+    width: 100px;
+ 
+    
+}
+
+.cartTotal {
+    text-align: center;
+}
+
+.cart-delete-product {
+    cursor: pointer;
+}
+
+.counter-button {
+    cursor: pointer;
+    font-weight: bold;
+    
+}
+
+h1{
+    text-align: center;
+}
+
+.back{
+    justify-self: start;
+    margin-left: 20px;
+    color: rgb(15, 52, 83);
+    margin-top: 4vh;
+    cursor: pointer;
+}
